@@ -1,0 +1,23 @@
+#center {
+    text-align: center!important;
+    font-size: 20px;
+}
+
+.navbar {
+    background-color: #3cbaff;
+    color: #ffffff;
+}
+
+.content-block-title {
+    color: #9a9a9a;
+}
+
+.list-block {
+    color: #3f3f3f;
+}
+
+.navbar-inner div {}
+
+i {
+    font-size: 17px!important;
+}

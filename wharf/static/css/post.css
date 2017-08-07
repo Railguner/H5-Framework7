@@ -1,0 +1,110 @@
+            * {
+    margin: 0;
+    padding: 0;
+    font-family: 'Microsoft YaHei'
+}
+
+input,
+button {
+    width: 80%;
+    display: block;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+}
+
+textarea {
+    width: 100%;
+}
+
+img {
+    width: 100%;
+    display: block;
+    margin: 40px auto 30px auto;
+}
+
+textarea {
+    height: 25%;
+    resize: none;
+    font-size: 17px;
+    color: black;
+    margin-top: 0!important;
+    margin-bottom: 20px!important;
+    padding-top: 15px!important;
+    outline: none;
+    list-style: none;
+    border: none;
+}
+
+button {
+    background-color: #3cbaff;
+    margin: 10px auto 30px auto;
+    color: white;
+    font-size: 18px;
+}
+
+.circle {
+    //     background-color: #4169E1;
+    //     width: 80%;
+    //     height: 36px;
+    //     border-radius: 5px;
+    //     display: block;
+    //     position: relative;
+    //     line-height: 36px;
+    //     margin: 10% auto;
+    //     text-align: center;
+    //     color: white;
+    // }
+    .display {
+        display: none;
+    }
+
+    canvas {
+        display: none;
+        //     width: 100%;
+        //     z-index: -100;
+        //     margin: 0 auto 30px auto;
+        // }
+        video {
+            //     display: none;
+            //     width: 100%;
+            //     z-index: -100;
+            //     margin: 0 auto 30px auto;
+            // }
+            #upload {
+                display: none;
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .snap {
+                background-color: #3cbaff;
+                width: 80%;
+                height: 36px;
+                border-radius: 5px;
+                display: block;
+                position: relative;
+                line-height: 36px;
+                margin: 10% auto;
+                text-align: center;
+                color: white;
+                font-size: 17px;
+            }
+            #center {
+                text-align: center!important;
+                font-size: 20px;
+            }
+            .list-block {
+                margin: 0!important;
+                color: #3f3f3f;
+            }
+            .navbar {
+                background-color: #3cbaff;
+                color: #ffffff;
+            }
+            .navbar-inner div {
+                font-size: 17px;
+            }
+            i {
+                font-size: 17px!important;
+            }

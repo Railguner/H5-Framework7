@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>码头散粮</title>
+    <link rel="stylesheet" href="static/css/framework7.ios.colors.min.css">
+    <link rel="stylesheet" href="static/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="static/css/framework7-icons.css">
+    <link rel="stylesheet" href="static/css/record.css">
+</head>
+
+<body>
+    <div class="statusbar-overlay"></div>
+    <div class="views">
+        <div class="view view-main">
+            <div class="pages">
+                <div data-page="index" class="page navbar-fixed toolbar-fixed">
+                    <!-- 顶栏 -->
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <div id="a"><i class="f7-icons">chevron_left</i>&nbsp;返回</div>
+                            <div id="center">记录巡查</div>
+                            <div id="b">添加&nbsp;<i class="f7-icons">chevron_right</i></div>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div class="content-block-title">个人列表</div>
+                        <div class="list-block accordion-list">
+                            <ul>
+                                {% for item in data %}
+                                <li class="accordion-item">
+                                    <a href="#" class="item-content item-link">
+                                        <div class="item-inner">
+                                            <span>{{item.wharf}}</span><span>{{item.time}}</span>
+                                        </div>
+                                    </a>
+                                    <div class="accordion-item-content">
+                                        <div class="content-block">
+                                            <p>地点:{{item.local if item.ship != false }}</p>
+                                            <p>码头:{{item.wharf if item.ship != false }}</p>
+                                            <p>船只:{{item.ship if item.ship != false }}</p>
+                                            <p>汽车:{{item.car if item.ship != false }}</p>
+                                            <p>堆场:{{item.bulk if item.ship != false }}</p>
+                                            <p>仓库:{{item.place if item.ship != false }}</p>
+                                            <p>去向:{{item.to_where if item.ship != false }}</p>
+                                            <p>描述:{{item.description if item.ship != false }}</p>
+                                            
+                                            {% for item in item.img %}
+                                            <p><img data-src="data:image/jpeg;base64,{{item}}" class='lazy lazy-fadeIn' style="width: 80%;display: block;margin:0 auto 0 auto" /></p>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src='static/js/framework7.min.js'></script>
+<script src='static/js/record.js'></script>
+
+</html>
