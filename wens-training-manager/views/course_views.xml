@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="wens_training_manager_course_list" model="ir.ui.view">
+            <field name="name">课程列表</field>
+            <field name="model">wens_training_manager_course</field>
+            <field name="arch" type="xml">
+                <tree string="课程列表">
+                    <field name="course_name"/>
+                    <field name="course_teacher_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="wens_training_manager_course_form" model="ir.ui.view">
+            <field name="name">课程列表详情</field>
+            <field name="model">wens_training_manager_course</field>
+            <field name="arch" type="xml">
+                <form string="课程列表详情">
+                    <sheet>
+                        <group>
+                            <field name="course_name"/>
+                            <field name="course_teacher_id"/>
+                            <field name="course_start_time"/>
+                            <field name="course_end_time"/>
+                        </group>
+                        <group>
+                            <field name="course_student_id"/>
+                        </group>
+                        <group>
+                            <field name="course_activity_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wens_training_manager_course_list" model="ir.actions.act_window">
+            <field name="name">课程列表</field>
+            <field name="res_model">wens_training_manager_course</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="wens_training_manager_course_list"/>
+        </record>
+    </data>
+</odoo>

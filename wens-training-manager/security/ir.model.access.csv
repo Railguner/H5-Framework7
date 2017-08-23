@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wens-training-manager_wens-training-manager,wens-training-manager.wens-training-manager,model_wens-training-manager_wens-training-manager,,1,0,0,0

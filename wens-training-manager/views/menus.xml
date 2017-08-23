@@ -1,0 +1,56 @@
+<odoo>
+    <data>
+        <menuitem name="温氏学院培训管理"
+                  id="menu_wens_training_manager_root"
+                  sequence="20"/>
+
+        <menuitem name="温氏学院培训管理"
+                  id="menu_wens_training_manager"
+                  parent="menu_wens_training_manager_root"
+                  sequence="10"
+                />
+
+        <menuitem name="签到表"
+                  id="menu_wens_training_manager_attend"
+                  parent="menu_wens_training_manager"
+                  sequence="10"
+                  action="action_wens_training_manager_attend_list"
+                />
+        <menuitem name="课程"
+                  id="menu_wens_training_manager_course"
+                  parent="menu_wens_training_manager"
+                  sequence="10"
+                  action="action_wens_training_manager_course_list"
+                />
+        <menuitem name="学员"
+                  id="menu_wens_training_manager_student"
+                  parent="menu_wens_training_manager"
+                  sequence="10"
+                  action="action_wens_training_manager_student_list"
+                />
+        <menuitem name="老师"
+                  id="menu_wens_training_manager_teacher"
+                  parent="menu_wens_training_manager"
+                  sequence="10"
+                  action="action_wens_training_manager_teacher_list"
+                />
+        <menuitem name="课程评价"
+                  id="menu_wens_training_manager_assess"
+                  parent="menu_wens_training_manager"
+                  sequence="10"
+                  action="action_wens_training_manager_assess_list"
+                />
+        <menuitem name="组织者"
+                  id="menu_wens_training_manager_organizer"
+                  parent="menu_wens_training_manager"
+                  sequence="10"
+                  action="action_wens_training_manager_organizer_list"
+                />
+        <menuitem name="项目"
+                  id="menu_wens_training_manager_project"
+                  parent="menu_wens_training_manager"
+                  sequence="10"
+                  action="action_wens_training_manager_project_list"
+                />
+    </data>
+</odoo>

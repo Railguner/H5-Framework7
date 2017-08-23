@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>绑定项目</title>
+    <link rel="stylesheet" href="static/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="static/css/framework7.ios.colors.min.css">
+    <link rel="stylesheet" href="static/css/bind.css">
+</head>
+
+<body>
+    <div class="statusbar-overlay"></div>
+    <!--views-->
+    <div class="views">
+        <div class="view view-main">
+            <!-- 固定布局 -->
+            <div class="pages navbar-fixed">
+                <!-- index page -->
+                <div class="navbar">
+                        <!-- index navbar -->
+                        <div class="navbar-inner" data-page="index">
+                            <div class="left">
+                                <a id="a">返回</a>
+                            </div>
+                            <div class="center">培训管理</div>
+                        </div>
+                    </div>
+                <div class="page" data-page="index">
+                    
+                    <div class="page-content">
+                        <img src="static/img/logo.png" alt="index">
+                        <div class="list-block">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                已绑培训项目
+                                            </div>
+                                            <div class="item-after">
+                                                {% for item in data %}
+                                                    {{item.bind_course}}
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <!-- option里写jinja -->
+                            <ul>
+                                <li>
+                                    <a href="#" class="item-link smart-select"  data-searchbar="true" data-searchbar-placeholder="搜索项目" data-back-on-select="true">
+                                        <select name="course" id="course">
+                                            {% for item in data %}
+                                            <option value="{{item.bind_course}}" selected>{{item.bind_course}}</option>
+                                            {% endfor %}
+
+                                            {% for item in data.course %}
+                                            <option value="{{item.course}}">{{item.course}}</option>
+                                            {% endfor %}
+                                        </select>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">修改培训项目</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="button" id="button">确定修改</button>
+                        <a href="student" class="external button">查看课程</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="static/js/framework7.min.js"></script>
+<script src="static/js/my-app.js"></script>
+<script src="static/js/bind.js"></script>
+
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>老师界面</title>
+    <link rel="stylesheet" href="static/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="static/css/framework7.ios.colors.min.css">
+    <link rel="stylesheet" href="static/css/teacher.css">
+</head>
+
+<body>
+    <div class="statusbar-overlay"></div>
+    <!--views-->
+    <div class="views">
+        <div class="view view-main">
+            <!-- 固定布局 -->
+            <div class="pages navbar-fixed">
+                <!-- index page -->
+                <div class="page" data-page="index">
+                    <div class="navbar">
+                        <!-- index navbar -->
+                        <div class="navbar-inner" data-page="index">
+                            <div class="left">
+                                <a href="index" class="external">返回</a>
+                            </div>
+                            <div class="center">老师界面</div>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        {% for item in data %}
+                        <div class="content-block-title">{{item.activity}}</div>
+                        <div class="list-block accordion-list">
+                            <ul>
+                                {% for item in item.course %}
+                                <li class="accordion-item">
+                                    <a href="#" class="item-content item-link">
+                                        <div class="item-inner">
+                                            <div class="item-title">{{item.course_name}}</div>
+                                        </div>
+                                    </a>
+                                    <div class="accordion-item-content">
+                                        <p class="time">开始时间:{{item.course_start_time}}</p>
+                                        <p class="time">开始时间:{{item.course_end_time}}</p>
+                                        <a href="#{{item.course_name}}" class="button">查看评价</a>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endfor %} 
+
+                        {% for item in data %} 
+                        {% for item in item.course %}
+                        <div class="page cached" data-page="{{item.course_name}}">
+                            <div class="navbar">
+                                <div class="navbar-inner" data-page="{{item.course_name}}">
+                                    <div class="left">
+                                        <a href="#" class="back">返回</a>
+                                    </div>
+                                    <div class="center">{{item.course_name}}</div>
+                                </div>
+                            </div>
+                            <div class="page-content">
+                                <!-- 分数写jinja -->
+                                <div class="list-block">
+                                    <ul>
+                                        <li>
+                                            <div class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-title">
+                                                        1.理论性和实用性
+                                                    </div>
+                                                    <div class="item-title">
+                                                        {{item.average_assess[0]}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-title">
+                                                        2.课程结构逻辑清楚、内容编排得当
+                                                    </div>
+                                                    <div class="item-title">
+                                                        {{item.average_assess[1]}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-title">
+                                                        3.课程内容、讨论、案例设置适当并有效
+                                                    </div>
+                                                    <div class="item-title">
+                                                        {{item.average_assess[2]}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-title">
+                                                        4.讲师的语言表达、教学方法运用恰当
+                                                    </div>
+                                                    <div class="item-title">
+                                                        {{item.average_assess[3]}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-title">
+                                                        5.授课技巧
+                                                    </div>
+                                                    <div class="item-title">
+                                                        {{item.average_assess[4]}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-title">
+                                                        6.控场能力(培训气氛、授课节奏调节)
+                                                    </div>
+                                                    <div class="item-title">
+                                                        {{item.average_assess[5]}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-title">
+                                                        7.对授课内容掌握的熟练程度
+                                                    </div>
+                                                    <div class="item-title">
+                                                        {{item.average_assess[6]}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-title">
+                                                        8.您对此课程内容的吸收与理解程度
+                                                    </div>
+                                                    <div class="item-title">
+                                                        {{item.average_assess[7]}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-title">
+                                                        9.您对课程的满意程度
+                                                    </div>
+                                                    <div class="item-title">
+                                                        {{item.average_assess[8]}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-title">
+                                                        10.达到您预期培训目标的程度
+                                                    </div>
+                                                    <div class="item-title">
+                                                        {{item.average_assess[9]}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="list-block">
+                                    <ul>
+                                        <li>
+                                            <div class="item-content">
+                                                <div class="item-inner">
+                                                    {{item.average_assess[10][0]}}
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="list-block">
+                                    <ul>
+                                        <li>
+                                            <div class="item-content">
+                                                <div class="item-inner">
+                                                    {{item.average_assess[11][0]}}
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %} 
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+<script src="static/js/framework7.min.js"></script>
+<script src="static/js/my-app.js"></script>
+
+</html>

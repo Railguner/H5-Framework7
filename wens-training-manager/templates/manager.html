@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>培训管理</title>
+    <link rel="stylesheet" href="static/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="static/css/framework7.ios.colors.min.css">
+    <link rel="stylesheet" href="static/css/manager.css">
+</head>
+
+<body>
+    <div class="statusbar-overlay"></div>
+    <!--views-->
+    <!-- 内联页面 -->
+    <div class="views">
+        <div class="view view-main">
+            <!-- 固定布局 -->
+            <div class="pages navbar-fixed">
+                <!-- index page -->
+                <div class="page" data-page="index">
+                    {% for item in data %}
+                    <div class="navbar">
+                        <!-- index navbar -->
+                        <div class="navbar-inner" data-page="index">
+                            <div class="center">{{item.name}}</div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <div class="page-content">
+                        {% for item in data %}
+                        <div class="content-block-title">{{item.item_name}}</div>
+                        <div class="list-block accordion-list">
+                            <ul>
+                                {% for item in item.course %}
+                                <li class="accordion-item">
+                                    <a href="#" class="item-content item-link">
+                                        <div class="item-inner">
+                                            <div class="item-title">{{item.course_name}}</div>
+                                        </div>
+                                    </a>
+                                    <div class="accordion-item-content">
+                                        <div class="name">{{item.teacher_name}}</div>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endfor %} 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="static/js/framework7.min.js"></script>
+<script src="static/js/my-app.js"></script>
+
+</html>

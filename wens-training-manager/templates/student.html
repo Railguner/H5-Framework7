@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>学生界面</title>
+    <link rel="stylesheet" href="static/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="static/css/framework7.ios.colors.min.css">
+    <link rel="stylesheet" href="static/css/student.css">
+</head>
+
+<body>
+    <div class="statusbar-overlay"></div>
+    <!--views-->
+    <!-- 内联页面 -->
+    <div class="views">
+        <div class="view view-main">
+            <!-- 固定布局 -->
+            <div class="pages navbar-fixed">
+                <!-- index page -->
+                <div class="page" data-page="index">
+                    <div class="navbar">
+                        <!-- index navbar -->
+                        <div class="navbar-inner" data-page="index">
+                            <div class="left">
+                                <a href="bind" class="external">返回</a>
+                            </div>
+                            <div class="center">学生界面</div>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div class="content-block-title">课程管理</div>
+                        <div class="list-block accordion-list">
+                            <ul>
+                                <!-- item-title课程名字写jinja，进行评价按钮的href写jinja -->
+                                {% for item in data %}
+                                <li class="accordion-item">
+                                    <a href="#" class="item-content item-link">
+                                        <div class="item-inner">
+                                            <div class="item-title">{{item.course}}</div>
+                                        </div>
+                                    </a>
+                                    <div class="accordion-item-content">
+                                        <div class="content-block">
+                                            <p>{{item.course_start_time}}</p>
+                                            <p>{{item.course_end_time}}</p>
+                                            <a href="#{{item.course}}" class="button">查看评价</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- 这两个data-page写jinja，center里写jinja，page-content里是双重循环嵌套jinja -->
+                {% for item in data %}
+                <div class="page cached" data-page="{{item.course}}">
+                    <div class="navbar">
+                        <div class="navbar-inner" data-page="{{item.course}}">
+                            <div class="left">
+                                <a href="#bind" class="back">返回</a>
+                            </div>
+                            <div class="center">{{item.course}}</div>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <!--  action="/wens_training_manager/student_assess" -->
+                        <form id="{{item.course}}">
+                            <div class="list-block">
+                                <ul>
+                                    <li>
+                                        <div class="item-content">
+                                            <!-- 名字是jinja -->
+                                            <div class="item-inner" style="font-size: 20px;">尊敬的{{item.name}}，您的评价是课程不断改进的基础，请认真填写。
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    1.理论性和实用性
+                                                </div>
+                                                <div class="item-title {{item.course}}">
+                                                    5分
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-input">
+                                                    <div class="range-slider">
+                                                        <input type="range" min="0" max="10" step="1" name="assessa" oninput="change(this)">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    2.课程结构逻辑清楚、内容编排得当
+                                                </div>
+                                                <div class="item-title {{item.course}}">
+                                                    5分
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-input">
+                                                    <div class="range-slider">
+                                                        <input type="range" min="0" max="10" step="1" name="assessb" oninput="change(this)">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    3.课程内容、讨论、案例设置适当并有效
+                                                </div>
+                                                <div class="item-title {{item.course}}">
+                                                    5分
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-input">
+                                                    <div class="range-slider">
+                                                        <input type="range" min="0" max="10" step="1" name="assessc" oninput="change(this)">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    4.讲师的语言表达、教学方法运用恰当
+                                                </div>
+                                                <div class="item-title {{item.course}}">
+                                                    5分
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-input">
+                                                    <div class="range-slider">
+                                                        <input type="range" min="0" max="10" step="1" name="assessd" oninput="change(this)">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    5.授课技巧
+                                                </div>
+                                                <div class="item-title {{item.course}}">
+                                                    5分
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-input">
+                                                    <div class="range-slider">
+                                                        <input type="range" min="0" max="10" step="1" name="assesse" oninput="change(this)">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    6.控场能力（培训气氛、授课节奏调节）
+                                                </div>
+                                                <div class="item-title {{item.course}}">
+                                                    5分
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-input">
+                                                    <div class="range-slider">
+                                                        <input type="range" min="0" max="10" step="1" name="assessf" oninput="change(this)">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    7.对授课内容掌握的熟练程度
+                                                </div>
+                                                <div class="item-title {{item.course}}">
+                                                    5分
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-input">
+                                                    <div class="range-slider">
+                                                        <input type="range" min="0" max="10" step="1" name="assessg" oninput="change(this)">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    8.您对此课程内容的吸收与理解程度
+                                                </div>
+                                                <div class="item-title {{item.course}}">
+                                                    5分
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-input">
+                                                    <div class="range-slider">
+                                                        <input type="range" min="0" max="10" step="1" name="assessh" oninput="change(this)">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    9.您对课程的满意程度
+                                                </div>
+                                                <div class="item-title {{item.course}}">
+                                                    5分
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-input">
+                                                    <div class="range-slider">
+                                                        <input type="range" min="0" max="10" step="1" name="assessi" oninput="change(this)">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    10.达到您预期培训目标的程度
+                                                </div>
+                                                <div class="item-title {{item.course}}">
+                                                    5分
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-input">
+                                                    <div class="range-slider">
+                                                        <input type="range" min="0" max="10" step="1" name="assessj" oninput="change(this)">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                11.本次课程您最大的收获是什么？课程中哪些内容对您启发和帮助最大？
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="align-top">
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-input">
+                                                    <textarea name="achievement" placeholder="请输入"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <input type="text" name="course" value="{{item.course}}" style="display:none;">
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                12.本次课程有哪些不足？您对讲师有何改进建议？您对课件内容有何改进建议？
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="align-top">
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-input">
+                                                    <textarea name="advice" placeholder="请输入"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </form>
+
+                        <div class="item-content btn">
+
+                        <div class="item-inner">
+                            <button class="button" onclick="submit('{{item.course}}')>确定</button>
+                        </div>
+                        
+                        </div>
+
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+<script src="static/js/framework7.min.js"></script>
+<script src="static/js/my-app.js"></script>
+<script src="static/js/student.js"></script>
+
+</html>
