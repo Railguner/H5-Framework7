@@ -1,0 +1,45 @@
+#center {
+    text-align: center!important;
+    font-size: 20px;
+}
+
+.navbar {
+    background-color: #3cbaff;
+    color: #ffffff;
+}
+
+.content-block-title {
+    color: #9a9a9a;
+}
+
+.list-block {
+    color: #3f3f3f;
+}
+
+
+i {
+    font-size: 17px!important;
+}
+
+.img_fr {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.img_fr > img {
+    margin: 0 0 0 2.0%;
+    padding: 0;
+    display: inline-block;
+    width: 30%;
+}
+
+.my_modal {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    z-index: 9999;
+    top: 0;
+}

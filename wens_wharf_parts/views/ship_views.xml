@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ws_wharf_parts_ship_list" model="ir.ui.view">
+            <field name="name">船列表</field>
+            <field name="model">ws_wharf_parts_ship</field>
+            <field name="arch" type="xml">
+                <tree string="船列表">
+                    <field name="ship_name"/>
+                    <field name="ship_description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="ws_wharf_parts_ship_form" model="ir.ui.view">
+            <field name="name">船列表详情</field>
+            <field name="model">ws_wharf_parts_ship</field>
+            <field name="arch" type="xml">
+                <form string="船列表详情">
+                    <sheet>
+                        <group>
+                            <field name="ship_name"/>
+                            <field name="ship_description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_ws_wharf_parts_ship_list" model="ir.actions.act_window">
+            <field name="name">船列表</field>
+            <field name="res_model">ws_wharf_parts_ship</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="ws_wharf_parts_ship_list"/>
+        </record>
+    </data>
+</odoo>

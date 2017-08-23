@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ws_wharf_parts_img_list" model="ir.ui.view">
+            <field name="name">图片列表</field>
+            <field name="model">ws_wharf_parts_img</field>
+            <field name="arch" type="xml">
+                <tree string="图片列表">
+                    <field name="img_name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="ws_wharf_parts_img_form" model="ir.ui.view">
+            <field name="name">图片列表详情</field>
+            <field name="model">ws_wharf_parts_img</field>
+            <field name="arch" type="xml">
+                <form string="图片列表详情">
+                    <sheet>
+                        <group>
+                            <field name="img_name"/>
+                            <field name="img"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_ws_wharf_parts_img_list" model="ir.actions.act_window">
+            <field name="name">图片列表</field>
+            <field name="res_model">ws_wharf_parts_img</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="ws_wharf_parts_img_list"/>
+        </record>
+    </data>
+</odoo>

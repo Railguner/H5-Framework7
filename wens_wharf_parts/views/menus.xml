@@ -1,0 +1,62 @@
+<odoo>
+    <data>
+        <menuitem name="码头散粮"
+                  id="menu_ws_wharf_parts_root"
+                  sequence="20"/>
+
+        <menuitem name="码头散粮"
+                  id="menu_ws_wharf_parts"
+                  parent="menu_ws_wharf_parts_root"
+                  sequence="10"
+                />
+
+        <menuitem name="巡查记录"
+                  id="menu_ws_wharf_parts_record"
+                  parent="menu_ws_wharf_parts"
+                  sequence="10"
+                  action="action_ws_wharf_parts_record_list"
+                />
+        <menuitem name="码头"
+                  id="menu_ws_wharf_parts_wharf"
+                  parent="menu_ws_wharf_parts"
+                  sequence="10"
+                  action="action_ws_wharf_parts_wharf_list"
+                />
+        <menuitem name="船"
+                  id="menu_ws_wharf_parts_ship"
+                  parent="menu_ws_wharf_parts"
+                  sequence="10"
+                  action="action_ws_wharf_parts_ship_list"
+                />
+        <menuitem name="车"
+                  id="menu_ws_wharf_parts_car"
+                  parent="menu_ws_wharf_parts"
+                  sequence="10"
+                  action="action_ws_wharf_parts_car_list"
+                />
+        <menuitem name="散粮堆场"
+                  id="menu_ws_wharf_parts_bulk"
+                  parent="menu_ws_wharf_parts"
+                  sequence="10"
+                  action="action_ws_wharf_parts_bulk_list"
+                />
+        <menuitem name="仓位"
+                  id="menu_ws_wharf_parts_place"
+                  parent="menu_ws_wharf_parts"
+                  sequence="10"
+                  action="action_ws_wharf_parts_place_list"
+                />
+        <menuitem name="去向"
+                  id="menu_ws_wharf_parts_to_where"
+                  parent="menu_ws_wharf_parts"
+                  sequence="10"
+                  action="action_ws_wharf_parts_to_where_list"
+                />
+        <menuitem name="图片"
+                  id="menu_ws_wharf_parts_img"
+                  parent="menu_ws_wharf_parts"
+                  sequence="10"
+                  action="action_ws_wharf_parts_img_list"
+                />
+    </data>
+</odoo>

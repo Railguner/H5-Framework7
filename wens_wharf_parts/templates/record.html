@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>码头散粮</title>
+    <link rel="stylesheet" href="static/css/framework7.ios.colors.min.css">
+    <link rel="stylesheet" href="static/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="static/css/framework7-icons.css">
+    <link rel="stylesheet" href="static/css/record.css">
+    <link rel="icon" href="static/img/favicon.png" mce_href="static/img/favicon.pngo" type="image/x-icon">
+</head>
+
+<body>
+    <div class="statusbar-overlay"></div>
+    <div class="views">
+        <div class="view view-main">
+            <div class="pages">
+                <div data-page="index" class="page navbar-fixed toolbar-fixed">
+                    <!-- modal -->
+                    <div class="my_modal" id="my_modal"></div>
+                    <!-- 顶栏 -->
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <div id="a"><i class="f7-icons">chevron_left</i>&nbsp;返回</div>
+                            <div id="center">记录巡查</div>
+                            <div id="b">添加&nbsp;<i class="f7-icons">chevron_right</i></div>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div class="content-block-title">个人列表</div>
+                        <div class="list-block accordion-list">
+                            <ul>
+                                {% for item in data %}
+                                <li class="accordion-item">
+                                    <a href="#" class="item-content item-link">
+                                        <div class="item-inner">
+                                            <span>{{item.wharf}}</span><span>{{item.time}}</span>
+                                        </div>
+                                    </a>
+                                    <div class="accordion-item-content">
+                                        <div class="content-block">
+                                            <p>地点:{{item.local if item.local != false }}</p>
+                                            <p>码头:{{item.wharf if item.wharf != false }}</p>
+                                            <p>船只:{{item.ship if item.ship != false }}</p>
+                                            <p>汽车:{{item.car if item.car != false }}</p>
+                                            <p>堆场:{{item.bulk if item.bulk != false }}</p>
+                                            <p>仓库:{{item.place if item.place != false }}</p>
+                                            <p>去向:{{item.to_where if item.to_where != false }}</p>
+                                            <p>描述:{{item.description if item.description != false}}</p>
+                                            <div class="img_fr">
+                                                {% for i in item.img %}
+                                                <img src="data:image/jpeg;base64,{{i[1]}}" id='{{i[0]}}' onclick='BigImg(this.id)' class='lazy lazy-fadeIn' /> 
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src='static/js/framework7.min.js'></script>
+<script src='static/js/record.js'></script>
+
+</html>
